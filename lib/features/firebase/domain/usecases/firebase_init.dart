@@ -23,7 +23,7 @@ mixin FirebaseInit{
       } else {
         await Firebase.initializeApp(name: serviceName, options: _optionsRepository.currentPlatform());
       }
-      initEmulator();
+      //initEmulator();
     } catch (e, s) {
       debugPrint(e.toString());
       debugPrintStack(stackTrace: s);
@@ -33,6 +33,7 @@ mixin FirebaseInit{
   void initEmulator() async{
     try {
       await FirebaseAuth.instance.useAuthEmulator('localhost', 9099);
+      FirebaseDatabase.instance.useDatabaseEmulator('localhost', 9000);
       print("amsdev inicio bien el amuladdor");
     }catch(e){
       print("amsdev fallo el amulador: $e");

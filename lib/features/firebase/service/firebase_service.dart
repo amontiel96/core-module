@@ -3,6 +3,7 @@ import 'package:core_module/features/firebase/domain/usecases/firebase_crashlyti
 import 'package:core_module/features/firebase/domain/usecases/firebase_email_verification.dart';
 import 'package:core_module/features/firebase/domain/usecases/firebase_init.dart';
 import 'package:core_module/features/firebase/domain/usecases/firebase_performance.dart';
+import 'package:core_module/features/firebase/domain/usecases/firebase_realtime.dart';
 import 'package:flutter/foundation.dart';
 
 class FirebaseService
@@ -11,6 +12,8 @@ class FirebaseService
   FirebaseService._();
 
   static final FirebaseService instance = FirebaseService._();
+
+  final FirebaseRealtimeService db = FirebaseRealtimeService();
 
   static Future<void> startServices() async {
     try {
