@@ -18,7 +18,7 @@ class ViewFirebaseAuthStateChanges extends StatelessWidget {
           // Mostrar un indicador de carga mientras se obtiene el estado del usuario
           return const Center(child: CircularProgressIndicator());
         } else if (snapshot.hasData) {
-          print("amsdev user email: ${snapshot.requireData!.email}");
+          //print("amsdev user email: ${snapshot.requireData!.email}");
           // Si el usuario está autenticado, muestra el widget de inicio de sesión
           onLogin(snapshot.requireData!, from);
         } else {
@@ -48,7 +48,7 @@ class ViewFirebaseAuthTokenChanges extends StatelessWidget {
           // Mostrar un indicador de carga mientras se obtiene el estado del usuario
           return const Center(child: CircularProgressIndicator());
         } else if (snapshot.hasData) {
-          print("amsdev user email: ${snapshot.requireData!.email}");
+          //print("amsdev user email: ${snapshot.requireData!.email}");
           // Si el usuario está autenticado, muestra el widget de inicio de sesión
           onLogin(snapshot.requireData!, from);
         } else {
@@ -78,7 +78,7 @@ class ViewFirebaseAuthUserChanges extends StatelessWidget {
           // Mostrar un indicador de carga mientras se obtiene el estado del usuario
           return const Center(child: CircularProgressIndicator());
         } else if (snapshot.hasData) {
-          print("amsdev user email: ${snapshot.requireData!.email}");
+          //print("amsdev user email: ${snapshot.requireData!.email}");
           // Si el usuario está autenticado, muestra el widget de inicio de sesión
           onLogin(snapshot.requireData!, from);
         } else {

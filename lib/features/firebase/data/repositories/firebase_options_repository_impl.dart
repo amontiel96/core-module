@@ -8,10 +8,7 @@ class FirebaseOptionsRepository implements FirebaseOptionsRepositoryI {
   @override
   FirebaseOptions currentPlatform() {
     if (kIsWeb) {
-      throw UnsupportedError(
-        'DefaultFirebaseOptions have not been configured for web - '
-            'you can reconfigure this by running the FlutterFire CLI again.',
-      );
+      return FirebaseOptionsModel.web;
     }
     switch (defaultTargetPlatform) {
       case TargetPlatform.android:

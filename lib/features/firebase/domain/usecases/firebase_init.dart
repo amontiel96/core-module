@@ -21,9 +21,9 @@ mixin FirebaseInit{
       if (kIsWeb) {
         await Firebase.initializeApp(options: _optionsRepository.currentPlatform());
       } else {
-        await Firebase.initializeApp(name: serviceName, options: _optionsRepository.currentPlatform());
+        await Firebase.initializeApp(options: _optionsRepository.currentPlatform());
       }
-      //initEmulator();
+      initEmulator();
     } catch (e, s) {
       debugPrint(e.toString());
       debugPrintStack(stackTrace: s);
@@ -33,7 +33,8 @@ mixin FirebaseInit{
   void initEmulator() async{
     try {
       await FirebaseAuth.instance.useAuthEmulator('localhost', 9099);
-      FirebaseDatabase.instance.useDatabaseEmulator('localhost', 9000);
+      FirebaseDatabase.instance.useDatabaseEmulator('localhost', 9001);
+      await FirebaseStorage.instance.useStorageEmulator('localhost', 9199);
       print("amsdev inicio bien el amuladdor");
     }catch(e){
       print("amsdev fallo el amulador: $e");

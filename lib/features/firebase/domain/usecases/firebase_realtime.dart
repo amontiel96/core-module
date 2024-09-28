@@ -8,9 +8,9 @@ class FirebaseRealtimeService {
     _repository.delete(path: path, result: result);
   }
 
-  Future<void> read(
-      {required String path, required Function(dynamic value) result}) async {
-    _repository.read(path: path, result: result);
+  Future<List<Map<String, dynamic>>> read(
+      {required String path}) async {
+    return await _repository.read(path: path);
   }
 
   Future<void> update(

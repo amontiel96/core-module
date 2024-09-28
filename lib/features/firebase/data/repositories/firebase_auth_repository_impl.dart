@@ -12,7 +12,7 @@ class FirebaseAuthRepository implements FirebaseAuthRepositoryI{
         email: email,
         password: password,
       );
-      print('amsdev User created with uid: ${credential.user!.uid}');
+      //print('amsdev User created with uid: ${credential.user!.uid}');
       return Right(credential.user);
       //await credential.user?.sendEmailVerification();
     } on FirebaseAuthException catch (e) {
@@ -50,6 +50,26 @@ class FirebaseAuthRepository implements FirebaseAuthRepositoryI{
   @override
   Future<void> signOut() async {
     await FirebaseAuth.instance.signOut();
+  }
+
+  @override
+  Future<bool> removeUser() async {
+    if (FirebaseAuth.instance.currentUser != null) {
+      print(FirebaseAuth.instance.currentUser?.uid);
+      try {
+        await FirebaseAuth.instance.currentUser?.delete();
+        return true;
+      }catch(e){
+        return false;
+      }
+    }
+    print("amsdev llega hasta el ultimo return false");
+    return false;
+  }
+
+  @override
+  User? getUser() {
+    return FirebaseAuth.instance.currentUser;
   }
 
 }

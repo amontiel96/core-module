@@ -5,4 +5,6 @@ abstract class FirebaseAuthRepositoryI{
   Future<Either<Exception, User?>> singUp({required String email, required String password});
   Future<FirebaseAuthCredentialsModel?> signIn({required String email, required String password});
   Future<void> signOut();
+  Future<bool> removeUser();
+  User? getUser();
 }

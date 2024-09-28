@@ -1,3 +1,5 @@
+import 'dart:convert';
+
 import 'package:core_module/core_module.dart';
 import 'package:core_module/features/firebase/domain/repositories/firebase_realtime_repository.dart';
 
@@ -14,18 +16,20 @@ class FirebaseRealtimeRepositoryImpl implements FirebaseRealtimeRepository {
   }
 
   @override
-  Future<void> read(
-      {required String path, required Function(dynamic value) result}) async {
+  Future<List<Map<String, dynamic>>> read({required String path}) async {
     final ref = FirebaseDatabase.instance.ref();
     final snapshot = await ref.child(path).get();
-    if (snapshot.exists) {
-      print(snapshot.value);
-      result(snapshot.value);
-    } else {
-      print('No data available.');
-      result('nodata');
+
+
+    if (snapshot.exists && snapshot.value is List) {
+      return List<Map<String, dynamic>>.from(
+          (snapshot.value as List).map((item) => Map<String, dynamic>.from(item))
+      );
     }
+
+    return [];
   }
+
 
   @override
   Future<void> update(
@@ -53,7 +57,7 @@ class FirebaseRealtimeRepositoryImpl implements FirebaseRealtimeRepository {
       print("amsdev entro then write");
       result(true);
     }).catchError((error) {
-      print("amsdev entro cathc write");
+      print("amsdev entro cathc write: $error");
       result(false);
     });
   }

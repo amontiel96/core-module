@@ -17,4 +17,12 @@ mixin FirebaseAuthService {
     _repository.signOut();
   }
 
+  Future<bool> removeUser() async {
+    return _repository.removeUser();
+  }
+
+  User? getUser(){
+    return _repository.getUser();
+  }
+
 }

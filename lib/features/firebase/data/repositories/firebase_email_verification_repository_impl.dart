@@ -20,10 +20,10 @@ class FirebaseEmailVerificationRepositoryImpl implements FirebaseEmailVerificati
           _emailVerificationTimer?.cancel(); // Detener el timer una vez verificado
           // Aquí puedes realizar acciones como navegar a otra pantalla
         } else {
-          print('amsdev El email aún no ha sido verificado');
+          //print('amsdev El email aún no ha sido verificado');
         }
       } else {
-        print('amsdev No hay un usuario autenticado');
+        //print('amsdev No hay un usuario autenticado');
         _emailVerificationTimer?.cancel(); // Detener el timer si no hay usuario
       }
     });
