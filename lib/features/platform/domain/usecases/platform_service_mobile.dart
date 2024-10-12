@@ -1,0 +1,6 @@
+class PlatformCoreService
+{
+  void initMethods(){
+
+  }
+}

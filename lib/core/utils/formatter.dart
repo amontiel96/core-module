@@ -1,3 +1,9 @@
+
+import 'dart:convert';
+import 'dart:developer';
+import 'package:flutter/foundation.dart';
+import 'package:intl/intl.dart';
+
 class FormatterUtils {
   static bool isValidEmail(String email) {
     // Expresión regular para validar formato de correo electrónico
@@ -10,5 +16,22 @@ class FormatterUtils {
     final regex = RegExp(r'^\d{10}$');
     return regex.hasMatch(phone);
   }
+
+  static DateTime onDateFormat({required String date}) {
+    late DateTime dateTime;
+    final DateFormat format = DateFormat('dd-MM-yyyy');
+
+
+    if (date.isNotEmpty) {
+      try {
+        dateTime = format.parse(date);
+      } catch (e) {
+        dateTime = DateTime.now();
+      }
+      return dateTime;
+    }
+    return DateTime.now();
+  }
+
 
 }
