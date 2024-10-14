@@ -36,6 +36,7 @@ class FirebaseRealtimeRepositoryImpl implements FirebaseRealtimeRepository {
       {required String path,
       required dynamic value,
       required Function(bool success) result}) async {
+    print("amsdev path: $path");
     DatabaseReference ref = FirebaseDatabase.instance.ref(path);
     await ref.update(value).then((_) {
       result(true);

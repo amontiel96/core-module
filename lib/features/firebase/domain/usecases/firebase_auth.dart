@@ -9,7 +9,7 @@ mixin FirebaseAuthService {
     return _repository.singUp(email: email, password: password);
   }
 
-  Future<FirebaseAuthCredentialsModel?> signIn(String email, String password) async {
+  Future<Map<String, dynamic>> signIn(String email, String password) async {
     return _repository.signIn(email: email, password: password);
   }
 

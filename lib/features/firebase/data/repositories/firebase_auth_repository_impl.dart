@@ -30,21 +30,23 @@ class FirebaseAuthRepository implements FirebaseAuthRepositoryI{
   }
 
   @override
-  Future<FirebaseAuthCredentialsModel?> signIn({required String email, required String password}) async {
+  Future<Map<String, dynamic>> signIn({required String email, required String password}) async {
     try {
-      final credential = await FirebaseAuth.instance.signInWithEmailAndPassword(
+      await FirebaseAuth.instance.signInWithEmailAndPassword(
           email: email,
           password: password
       );
-      return FirebaseAuthCredentialsModel(email,password);
+      return {'success': true, 'email': email, 'password': password};
     } on FirebaseAuthException catch (e) {
       if (e.code == 'user-not-found') {
         print('No user found for that email.');
+        return {'success': false, 'email': email, 'password': password, 'error':'Usuario no encontrado'};
       } else if (e.code == 'wrong-password') {
         print('Wrong password provided for that user.');
+        return {'success': false, 'email': email, 'password': password, 'error':'Contraseña incorrecta'};
       }
     }
-    return null;
+    return {'success': false, 'email': email, 'password': password, 'error':'Fallo la autenticación'};
   }
 
   @override
