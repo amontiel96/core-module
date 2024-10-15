@@ -25,3 +25,5 @@ export 'package:geolocator/geolocator.dart';
 export 'package:core_module/features/permissions/service/permission_service.dart';
 
 export 'package:core_module/features/platform/service/platform_service.dart';
+export 'package:core_module/features/storage/service/storage_service.dart';
+export 'package:core_module/injection_container.dart';
