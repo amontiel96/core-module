@@ -1,4 +1,3 @@
-
 import 'package:core_module/global/domain/repository/firebase/firebase_repository.dart';
 import 'package:core_module/utils/firebase/push_notification_on_backgroud_handler.dart';
 import 'package:firebase_crashlytics/firebase_crashlytics.dart';
@@ -7,13 +6,10 @@ import 'package:firebase_performance/firebase_performance.dart';
 import 'package:flutter/foundation.dart';
 import 'package:core_module/core_module.dart';
 
-import '../global/domain/repository/firebase/firebase_export.dart';
-
 
 Future<void> _firebaseMessagingBackgroundHandler(RemoteMessage message) async {
   handlerNotification(message);
 }
-
 
 class FirebaseService with FirebaseRepository {
   FirebaseService._();
@@ -27,7 +23,6 @@ class FirebaseService with FirebaseRepository {
   // Toggle this for testing Crashlytics in your app locally.
   static const _kTestingCrashlytics = false;
 
-
   //final _firebaseMessage = FirebaseMessaging.instance;
   //final _repository = PushNotificationRepository.instance;
 
@@ -35,8 +30,7 @@ class FirebaseService with FirebaseRepository {
     try {
       FirebaseMessaging.onBackgroundMessage(
           _firebaseMessagingBackgroundHandler);
-      String serviceName =
-          'trainUp-app';
+      String serviceName = 'trainUp-app';
       //await Firebase.initializeApp(name: serviceName, options: options);
       if (kIsWeb) {
         await Firebase.initializeApp(options: options);
@@ -60,9 +54,8 @@ class FirebaseService with FirebaseRepository {
     }
   }
 
-
   static Future<void> _initCrashlyticsService() async {
-    if(!kIsWeb){
+    if (!kIsWeb) {
       try {
         // Pass all uncaught errors from the framework to Crashlytics.
         FlutterError.onError = (errorDetails) {
@@ -81,12 +74,11 @@ class FirebaseService with FirebaseRepository {
         debugPrintStack(stackTrace: s);
       }
     }
-
   }
 
   // Define an async function to initialize FlutterFire
   static Future<void> _initializeFirebaseServices() async {
-    if(!kIsWeb){
+    if (!kIsWeb) {
       try {
         if (_kTestingCrashlytics) {
           // Force enable crashlytics collection enabled if we're testing it.
@@ -116,7 +108,7 @@ class FirebaseService with FirebaseRepository {
   }
 
   static Future<void> _initPerformanceService() async {
-    if(!kIsWeb){
+    if (!kIsWeb) {
       try {
         FirebasePerformance.instance.setPerformanceCollectionEnabled(true);
       } catch (e, s) {
@@ -125,5 +117,4 @@ class FirebaseService with FirebaseRepository {
       }
     }
   }
-
 }

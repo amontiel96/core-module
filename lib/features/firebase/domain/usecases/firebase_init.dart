@@ -36,9 +36,6 @@ mixin FirebaseInit{
       FirebaseDatabase.instance.useDatabaseEmulator('localhost', 9001);
       await FirebaseStorage.instance.useStorageEmulator('localhost', 9199);
 
-     /* await FirebaseAuth.instance.useAuthEmulator('192.168.1.233', 9099);
-      FirebaseDatabase.instance.useDatabaseEmulator('192.168.1.233', 9001);
-      await FirebaseStorage.instance.useStorageEmulator('192.168.1.233', 9199);*/
       print("amsdev inicio bien el amuladdor");
     }catch(e){
       print("amsdev fallo el amulador: $e");

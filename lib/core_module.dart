@@ -27,3 +27,4 @@ export 'package:core_module/features/permissions/service/permission_service.dart
 export 'package:core_module/features/platform/service/platform_service.dart';
 export 'package:core_module/features/storage/service/storage_service.dart';
 export 'package:core_module/injection_container.dart';
+export 'package:core_module/core/constants/firebase_paths_constant.dart';
