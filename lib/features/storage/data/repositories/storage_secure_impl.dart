@@ -25,4 +25,8 @@ class StorageSecureImpl implements StorageInterface {
     storage = const FlutterSecureStorage();
     print("amsdev inicio bien el preferences");
   }
+  @override
+  Future<void> clear() async {
+    await storage.readAll();
+  }
 }

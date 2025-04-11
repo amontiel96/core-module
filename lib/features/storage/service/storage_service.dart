@@ -22,4 +22,4 @@ class StorageCoreService
 
 }
 
-enum StorageDataType { int, string, double, bool }
+enum StorageDataType { int, string, double, bool, list }

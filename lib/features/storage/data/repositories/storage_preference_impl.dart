@@ -19,7 +19,11 @@ class StoragePreferencesImpl implements StorageInterface{
       return  prefs.getDouble(key);
     } else if(type == StorageDataType.bool) {
       return  prefs.getBool(key);
-    } else {
+    }
+    else if(type == StorageDataType.list) {
+      return  prefs.getStringList(key);
+    }
+    else {
       return  prefs.getString(key)?.toString();
     }
   }
@@ -35,6 +39,9 @@ class StoragePreferencesImpl implements StorageInterface{
     }else if(value is bool) {
       await prefs.setBool(key, value);
     }
+    else if(value is List<String>) {
+      await prefs.setStringList(key, value);
+    }
     else {
       await prefs.setString(key, value.toString());
     }
@@ -46,7 +53,10 @@ class StoragePreferencesImpl implements StorageInterface{
     print("amsdev inicio bien el preferences");
   }
 
-
+  @override
+  Future<void> clear() async {
+    await prefs.clear();
+  }
 
 }
 

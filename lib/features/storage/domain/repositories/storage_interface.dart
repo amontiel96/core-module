@@ -3,4 +3,5 @@ abstract class StorageInterface{
   Future<void> delete({required String key});
   dynamic getValue({required String key});
   Future<void> initStorage();
+  Future<void> clear();
 }

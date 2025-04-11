@@ -2,31 +2,29 @@ import 'package:firebase_core/firebase_core.dart';
 
 class FirebaseOptionsModel {
   static FirebaseOptions android = const FirebaseOptions(
-    apiKey: 'AIzaSyAA4q4n3DT0mRMdy_SYV1yxFSFio-DM6h8',
-    appId: '1:51065976324:android:b09623b4ebe0d436d5e751',
-    messagingSenderId: '51065976324',
-    projectId: 'shonenfit-app',
-    storageBucket: 'shonenfit-app.appspot.com',
+    apiKey: 'AIzaSyAWFRbMA5WKBQ6lEtM5RnNcJ9kjQJKmN80',
+    appId: '1:1008274796828:android:6e261ae5217c35563c8ad9',
+    messagingSenderId: '1008274796828',
+    projectId: 'pokemon-app-ams',
+    storageBucket: 'pokemon-app-ams.firebasestorage.app',
   );
 
   static FirebaseOptions ios = const FirebaseOptions(
-    apiKey: 'AIzaSyD2n_Nqdgdry1NAbEsICNJD1D2EFXy7Vy8',
-    appId: '1:51065976324:ios:2ab9381ef82e10f1d5e751',
-    messagingSenderId: '51065976324',
-    projectId: 'shonenfit-app',
-    storageBucket: 'shonenfit-app.appspot.com',
-    iosClientId:
-        '51065976324-iq1udrr531rqu2udeksfqia354an11vr.apps.googleusercontent.com',
-    iosBundleId: 'ams.app.shonen.fit',
+    apiKey: 'AIzaSyAHi7yj9g33xFzpXPrWSyC0PlSQRMEgkKU',
+    appId: '1:1008274796828:ios:7b57035482e95e2d3c8ad9',
+    messagingSenderId: '1008274796828',
+    projectId: 'pokemon-app-ams',
+    storageBucket: 'pokemon-app-ams.firebasestorage.app',
+    iosBundleId: 'ams.api.pokemon.app',
   );
 
   static FirebaseOptions web = FirebaseOptions(
-      apiKey: "AIzaSyApE1CCokEhmPBn99pm705ZNKjeaYbs6gg",
-      authDomain: "shonenfit-app.firebaseapp.com",
-      databaseURL: "https://shonenfit-app-default-rtdb.firebaseio.com",
-      projectId: "shonenfit-app",
-      storageBucket: "shonenfit-app.appspot.com",
-      messagingSenderId: "51065976324",
-      appId: "1:51065976324:web:ff55e643cde8bb12d5e751",
-      measurementId: "G-SV8NMBCFDT");
+      apiKey: "AIzaSyDhx4__reqKvhZbzStMEx4-b8Yp3qZutqE",
+      authDomain: "pokemon-app-ams.firebaseapp.com",
+      databaseURL: "https://pokemon-app-ams-default-rtdb.firebaseio.com",
+      projectId: "pokemon-app-ams",
+      storageBucket: "pokemon-app-ams.firebasestorage.app",
+      messagingSenderId: "1008274796828",
+      appId: "1:1008274796828:web:2aa40b33624f129b3c8ad9",
+      measurementId: "G-Y2D7RYGZM1");
 }

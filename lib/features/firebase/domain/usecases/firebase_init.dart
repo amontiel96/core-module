@@ -15,15 +15,12 @@ mixin FirebaseInit{
 
   Future<void> start({String? name}) async {
     try {
-      //FirebaseMessaging.onBackgroundMessage(_firebaseMessagingBackgroundHandler);
-      String serviceName =
-          'trainUp-app';
       if (kIsWeb) {
         await Firebase.initializeApp(options: _optionsRepository.currentPlatform());
       } else {
         await Firebase.initializeApp(options: _optionsRepository.currentPlatform());
       }
-      initEmulator();
+      //initEmulator();
     } catch (e, s) {
       debugPrint(e.toString());
       debugPrintStack(stackTrace: s);
